@@ -1,0 +1,36 @@
+CC = gcc-mp-5
+CXX= g++-mp-5
+FF = gfortran-mp-5
+
+CFLAGS = -O2 
+CXXFLAGS = -O2  -std=c++11
+FFLAGS = -O2 -I/opt/local/include
+
+#PGI
+#CFLAGS += -mp
+#FFLAGS += -mp
+
+#GNU
+CFLAGS += -fopenmp
+CXXFLAGS += -fopenmp
+FFLAGS += -fopenmp 
+
+#INTEL
+#CFLAGS += -openmp
+#FFLAGS += -openmp
+
+EXE = stream_triad_omp.exe stream_omp.exe
+
+all: $(EXE)
+
+
+stream_omp.exe: stream_omp.c
+	$(CC) $(CFLAGS) stream_omp.c -o stream_omp.exe
+
+stream_triad_omp.exe: stream_triad_omp.cc
+	$(CXX) $(CXXFLAGS) stream_triad_omp.cc -o stream_triad_omp.exe
+clean:
+	rm -f $(EXE) *.o *~
+test : all
+	./run.sh | tee ${HOME}/README.stream.gce
+

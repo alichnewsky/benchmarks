@@ -1,0 +1,20 @@
+OpenMP version of STREAM from NERSC: 
+http://www.nersc.gov/users/computational-systems/cori/nersc-8-procurement/trinity-nersc-8-rfp/nersc-8-trinity-benchmarks/stream/
+
+Download original code @
+http://www.nersc.gov/assets/Trinity--NERSC-8-RFP/Benchmarks/Jan9/stream.tar
+
+usage :
+export PATH=${PATH}:`pwd`
+export LD_LIBRARY_PATH=`pwd`
+
+export NCORES = `grep processor /proc/cpuinfo | wc| awk '{print $1}'
+echo "Stream Triad test"
+echo \# OMP Threads ";" Stream triad bandwidth in MB/s ";"
+
+for i in 1 `seq 2 $NCORES` do;
+	echo $i ";" $(OMP_NUM_THREADS=${i} stream_omp.exe  | grep Triad | awk '{print $3}') ";"
+done;
+
+cat /proc/cpuinfo
+ 
