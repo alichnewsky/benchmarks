@@ -19,13 +19,10 @@ FFLAGS += -fopenmp
 #CFLAGS += -openmp
 #FFLAGS += -openmp
 
-EXE = stream_triad_omp.exe stream_omp.exe
+EXE = stream_triad_omp.exe
 
 all: $(EXE)
 
-
-stream_omp.exe: stream_omp.c
-	$(CC) $(CFLAGS) stream_omp.c -o stream_omp.exe
 
 stream_triad_omp.exe: stream_triad_omp.cc
 	$(CXX) $(CXXFLAGS) stream_triad_omp.cc -o stream_triad_omp.exe
