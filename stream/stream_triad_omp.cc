@@ -46,7 +46,7 @@
 # include <limits.h>
 # include <sys/time.h>
 # include <memory>
-#include <omp.h>
+# include <omp.h>
 
 /* INSTRUCTIONS:
  *
@@ -87,12 +87,9 @@
 # endif
 
 extern double mysecond();
-extern void checkSTREAMresults();
+
 #ifdef TUNED
-extern void tuned_STREAM_Copy();
-extern void tuned_STREAM_Scale(double scalar);
-extern void tuned_STREAM_Add();
-extern void tuned_STREAM_Triad(double scalar);
+extern void tuned_STREAM_Triad(double *a, double *b, double *c, unsigned long long N, double scalar, int nthreads);
 #endif
 int
 main()
