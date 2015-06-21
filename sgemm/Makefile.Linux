@@ -1,5 +1,5 @@
-OPENBLAS_LIBDIR=/usr/lib
-OPENBLAS_INCDIR=/usr/include
+OPENBLAS_LIBDIR=${HOME}/lib
+OPENBLAS_INCDIR=${HOME}/include
 
 CXX=g++
 CPPFLAGS = -I$(OPENBLAS_INCDIR)
@@ -12,6 +12,6 @@ all : $(EXE)
 
 sgemm_omp : sgemm_omp.cc
 test : $(EXE)
-	./sgemm_omp | tee ~/README.gce.stream
+	LD_LIBRARY_PATH=$(OPENBLAS_LIBDIR) ./sgemm_omp | tee ~/README.gce.stream
 clean : 
 	-rm $(EXE)
