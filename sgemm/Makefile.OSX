@@ -1,0 +1,12 @@
+OPENBLAS_DIR=/Users/anthony/Software/HPC/Scientific/Framework/LinearAlgebra/OpenBLAS
+
+CXX=g++-mp-5
+CPPFLAGS = -I$(OPENBLAS_DIR)
+CXXFLAGS = -O3 -fopenmp -std=c++11
+LDLIBS  = -lopenblas
+LDFLAGS = -L$(OPENBLAS_DIR)
+
+EXE = sgemm_omp
+all : $(EXE)
+
+sgemm_omp : sgemm_omp.cc
