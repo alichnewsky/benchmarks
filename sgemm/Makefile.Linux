@@ -1,0 +1,16 @@
+OPENBLAS_DIR=/usr/lib
+
+CXX=g++
+CPPFLAGS = -I$(OPENBLAS_DIR)
+CXXFLAGS = -O3 -fopenmp -std=c++11
+LDLIBS  = -lopenblas
+LDFLAGS = -L$(OPENBLAS_DIR)
+
+EXE = sgemm_omp
+all : $(EXE)
+
+sgemm_omp : sgemm_omp.cc
+test : $(EXE)
+     ./sgemm_omp | tee README.gce.stream
+clean : 
+      -rm $(EXE)
