@@ -12,6 +12,6 @@ all : $(EXE)
 
 sgemm_omp : sgemm_omp.cc
 test : $(EXE)
-	LD_LIBRARY_PATH=$(OPENBLAS_LIBDIR) ./sgemm_omp | tee ~/README.gce.stream
+	LD_LIBRARY_PATH=$(OPENBLAS_LIBDIR) ./sgemm_omp | tee ~/README.sgemm.gce
 clean : 
 	-rm $(EXE)
