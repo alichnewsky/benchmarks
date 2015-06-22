@@ -91,7 +91,7 @@ int main(int argc, char** argv){
 
     double avgTime = sumTime / (1.0*nthreads);
     double gflops = ((1.0*M)*(1.0*N)*(1.0*K)*2.0 + (1.0*M)*(1.0*N))*nthreads / avgTime *1e-9;
-    printf("%d threads avgTime=%11.5f minTime=%11.5f maxTime=%11.5f, %11.5f GFlops\n", nthreads, avgTime, minTime, maxTime, gflops);
+    printf("%2d threads avgTime=%11.5f minTime=%11.5f maxTime=%11.5f, %11.5f GFlops\n", nthreads, avgTime, minTime, maxTime, gflops);
     fflush(stdout);
   }
 
