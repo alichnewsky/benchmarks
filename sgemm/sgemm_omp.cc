@@ -42,7 +42,7 @@ int main(int argc, char** argv){
   // SGEMM flops is :
   //C = alpha * op(A)*op(B) + beta* C
   // where op is identity or transpose
-  const int ITERS = 100;
+  const int ITERS = 50;
 #pragma omp parallel for num_threads(max_threads) if (max_threads > 1)
   for(int nthreads = 1; nthreads <= max_threads; nthreads++){
     int th = omp_get_thread_num();
