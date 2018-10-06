@@ -8,7 +8,7 @@ demonstrates the use of [google benchmark](http://github.com/google/benchmark) o
 
 ```
 git clone --recursive https://github.com/alichnewsky/benchmarks
-``
+```
 
 includes [Google Benchmark](https://github.com/google/benchmark) and [Google Test](https://google.com/google/googletest) third party dependencies as submodules.
 
